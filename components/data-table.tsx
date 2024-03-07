@@ -22,6 +22,7 @@ import {
     TableRow,
 } from "@/components/ui/table"
 import { Button } from "@/components/ui/button"
+import { Input } from "./ui/input"
 
 
 interface DataTableProps<TData, TValue> {
@@ -55,7 +56,13 @@ export function DataTable<TData, TValue>({
 
     return (
         <div>
-            <div className="flex items-center justify-end py-4  mb-10">
+            <div className="flex items-center justify-between py-4  mb-10">
+                <Input
+                    placeholder="Filter users..."
+                    value={(table.getColumn("name")?.getFilterValue() as string) ?? ""}
+                    onChange={(event) => table.getColumn("name")?.setFilterValue(event.target.value)}
+                    className="max-w-sm bg-pink-100 border border-black"
+                />
                 <Button className="bg-[#c4287b]">Add User</Button>
             </div>
             <div className="rounded-md border border-[#c4287b]">
