@@ -54,6 +54,10 @@ export const columns: ColumnDef<Users>[] = [
     cell: ({ row }) => <Button className=" bg-green-400"> Attendance</Button>
   },
   {
+    id: "actionss",
+    cell: ({ row }) => <Button className=" bg-green-400"> View</Button>
+  },
+  {
     id: "action",
     cell: ({ row }) => <Actions title={row.original.name} id={row.original.email}>
       <button
